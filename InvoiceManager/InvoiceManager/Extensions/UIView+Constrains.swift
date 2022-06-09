@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
 
-    func withAutoLayout() -> UIView {
+    @objc func withAutoLayout() -> UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         return self
     }
@@ -19,16 +19,16 @@ extension UIView {
     }
     
     func constraintBottom(to viewBottom: UIView, constant: CGFloat = 0) {
-        self.topAnchor.constraint(equalTo: viewBottom.topAnchor, constant: constant).isActive = true
+        self.bottomAnchor.constraint(equalTo: viewBottom.bottomAnchor, constant: constant).isActive = true
     }
     
     
     func constraintLeading(to viewLeading: UIView, constant: CGFloat = 0) {
-        self.topAnchor.constraint(equalTo: viewLeading.topAnchor, constant: constant).isActive = true
+        self.leadingAnchor.constraint(equalTo: viewLeading.leadingAnchor, constant: constant).isActive = true
     }
     
     func constraintTrailing(to viewTrailing: UIView, constant: CGFloat = 0) {
-        self.topAnchor.constraint(equalTo: viewTrailing.topAnchor, constant: constant).isActive = true
+        self.trailingAnchor.constraint(equalTo: viewTrailing.trailingAnchor, constant: constant).isActive = true
     }
 
 }

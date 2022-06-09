@@ -18,6 +18,8 @@
 		D325D37B2852A71A000397B0 /* InvoiceManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D37A2852A71A000397B0 /* InvoiceManagerUITests.swift */; };
 		D325D37D2852A71A000397B0 /* InvoiceManagerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D37C2852A71A000397B0 /* InvoiceManagerUITestsLaunchTests.swift */; };
 		D325D38B2852A75E000397B0 /* UIView+Constrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D38A2852A75E000397B0 /* UIView+Constrains.swift */; };
+		D325D38E2852AAA8000397B0 /* InvoiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D38D2852AAA8000397B0 /* InvoiceCollectionViewController.swift */; };
+		D325D3902852ADA0000397B0 /* UICollectionView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D38F2852ADA0000397B0 /* UICollectionView+Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		D325D37A2852A71A000397B0 /* InvoiceManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceManagerUITests.swift; sourceTree = "<group>"; };
 		D325D37C2852A71A000397B0 /* InvoiceManagerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceManagerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D325D38A2852A75E000397B0 /* UIView+Constrains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constrains.swift"; sourceTree = "<group>"; };
+		D325D38D2852AAA8000397B0 /* InvoiceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceCollectionViewController.swift; sourceTree = "<group>"; };
+		D325D38F2852ADA0000397B0 /* UICollectionView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Constraints.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 		D325D3892852A73F000397B0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D325D38F2852ADA0000397B0 /* UICollectionView+Constraints.swift */,
 				D325D38A2852A75E000397B0 /* UIView+Constrains.swift */,
 			);
 			path = Extensions;
@@ -145,6 +150,7 @@
 		D325D38C2852A94C000397B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D325D38D2852AAA8000397B0 /* InvoiceCollectionViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -282,8 +288,10 @@
 			files = (
 				D325D35B2852A717000397B0 /* ViewController.swift in Sources */,
 				D325D3572852A717000397B0 /* AppDelegate.swift in Sources */,
+				D325D38E2852AAA8000397B0 /* InvoiceCollectionViewController.swift in Sources */,
 				D325D38B2852A75E000397B0 /* UIView+Constrains.swift in Sources */,
 				D325D3592852A717000397B0 /* SceneDelegate.swift in Sources */,
+				D325D3902852ADA0000397B0 /* UICollectionView+Constraints.swift in Sources */,
 				D325D3612852A717000397B0 /* InvoiceManager.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
