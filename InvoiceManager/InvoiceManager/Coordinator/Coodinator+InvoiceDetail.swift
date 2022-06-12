@@ -11,7 +11,7 @@ import CoreData
 protocol CoordinatorInvoiceDetail {
     
     func goToInvoiceDetail(from vc: UIViewController,
-                           invoice: Invoice,
+                           invoice: InvoiceEntity,
                            coordinator: Coordinator?,
                            context: NSManagedObjectContext)
 }
@@ -19,7 +19,7 @@ protocol CoordinatorInvoiceDetail {
 extension Coordinator: CoordinatorInvoiceDetail {
  
     func goToInvoiceDetail(from vc: UIViewController,
-                           invoice: Invoice,
+                           invoice: InvoiceEntity,
                            coordinator: Coordinator?,
                            context: NSManagedObjectContext) {
         

@@ -3,11 +3,10 @@
     <entity name="InvoiceEntity" representedClassName="InvoiceEntity" syncable="YES" codeGenerationType="class">
         <attribute name="client" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="String"/>
-        <attribute name="id" attributeType="String"/>
         <attribute name="image" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="InvoiceEntity" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="InvoiceEntity" positionX="-63" positionY="-18" width="128" height="89"/>
     </elements>
 </model>

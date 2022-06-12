@@ -10,27 +10,29 @@ import CoreData
 
 class InvoiceDetailLogicController {
     
-    let invoice: Invoice
+    let invoice: InvoiceEntity
     private let context: NSManagedObjectContext
     
-    init(invoice: Invoice,
+    init(invoice: InvoiceEntity,
          context: NSManagedObjectContext) {
         
         self.invoice = invoice
         self.context = context
     }
     
-    func saveInvoice() {
+    func saveInvoice(name: String,
+                     client: String,
+                     date: String) {
         
-        let entity = InvoiceEntity(context: self.context)
-        entity.id = invoice.id
-        entity.name = "TESTE 1" //invoice.name
-        entity.client = "teste 1" //invoice.client
-        entity.date = "23/09/1994"//invoice.date
-        entity.image = invoice.invoiceImage
+        self.invoice.name = name
+        self.invoice.client = client
+        self.invoice.date = date
         
         do {
             try context.save()
+            
+            NotificationCenter.default.post(name: NotificationKeys.fetchNewItems.notificationName,
+                                            object: nil)
         } catch {
             print("Error")
         }

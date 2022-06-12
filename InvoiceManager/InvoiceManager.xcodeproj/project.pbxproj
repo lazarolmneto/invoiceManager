@@ -27,6 +27,8 @@
 		D39D9B0F2854E0D200DA0A76 /* InvoiceDetailLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D9B0E2854E0D200DA0A76 /* InvoiceDetailLogicController.swift */; };
 		D3EB0450285627F50059DE68 /* InvoiceCollectionLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EB044F285627F50059DE68 /* InvoiceCollectionLogicController.swift */; };
 		D3EB0453285633990059DE68 /* AddInvoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EB0452285633990059DE68 /* AddInvoiceCollectionViewCell.swift */; };
+		D3EB04552856384D0059DE68 /* InvoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EB04542856384D0059DE68 /* InvoiceCollectionViewCell.swift */; };
+		D3EB04582856706A0059DE68 /* NotificationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EB04572856706A0059DE68 /* NotificationKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		D39D9B0E2854E0D200DA0A76 /* InvoiceDetailLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailLogicController.swift; sourceTree = "<group>"; };
 		D3EB044F285627F50059DE68 /* InvoiceCollectionLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceCollectionLogicController.swift; sourceTree = "<group>"; };
 		D3EB0452285633990059DE68 /* AddInvoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInvoiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		D3EB04542856384D0059DE68 /* InvoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		D3EB04572856706A0059DE68 /* NotificationKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 		D325D3552852A716000397B0 /* InvoiceManager */ = {
 			isa = PBXGroup;
 			children = (
+				D3EB04562856702D0059DE68 /* Notifications */,
 				D39D9B082854DFB200DA0A76 /* Model */,
 				D39D9B032854DE5A00DA0A76 /* Coordinator */,
 				D325D38C2852A94C000397B0 /* View */,
@@ -204,8 +209,17 @@
 			isa = PBXGroup;
 			children = (
 				D3EB0452285633990059DE68 /* AddInvoiceCollectionViewCell.swift */,
+				D3EB04542856384D0059DE68 /* InvoiceCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		D3EB04562856702D0059DE68 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				D3EB04572856706A0059DE68 /* NotificationKeys.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,7 +355,9 @@
 			files = (
 				D39D9B052854DE7100DA0A76 /* Coordinator.swift in Sources */,
 				D325D35B2852A717000397B0 /* ViewController.swift in Sources */,
+				D3EB04552856384D0059DE68 /* InvoiceCollectionViewCell.swift in Sources */,
 				D39D9B0C2854E08E00DA0A76 /* InvoiceDetailViewController.swift in Sources */,
+				D3EB04582856706A0059DE68 /* NotificationKeys.swift in Sources */,
 				D39D9B0F2854E0D200DA0A76 /* InvoiceDetailLogicController.swift in Sources */,
 				D325D3572852A717000397B0 /* AppDelegate.swift in Sources */,
 				D325D38E2852AAA8000397B0 /* InvoiceCollectionViewController.swift in Sources */,

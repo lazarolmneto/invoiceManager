@@ -183,7 +183,9 @@ class InvoiceDetailViewController: UIViewController {
         let saveAction = UIAction { [weak self] action in
             guard let self = self else { return }
             
-            self.logicController?.saveInvoice()
+            self.logicController?.saveInvoice(name: self.nameTextField.text ?? "",
+                                              client: self.clientTextField.text ?? "",
+                                              date: self.dateTextField.text ?? "")
             self.coordinator?.back(from: self)
         }
         
@@ -191,7 +193,7 @@ class InvoiceDetailViewController: UIViewController {
     }
     
     private func setupLayoutData() {
-        if let data = Data(base64Encoded: self.logicController?.invoice.invoiceImage ?? "", options:    .ignoreUnknownCharacters) {
+        if let data = Data(base64Encoded: self.logicController?.invoice.image ?? "", options:    .ignoreUnknownCharacters) {
             let image = UIImage(data: data)
             self.imageView.image = image
         }
@@ -199,5 +201,9 @@ class InvoiceDetailViewController: UIViewController {
         self.nameTextField.placeholder = Constants.namePlaceHolder
         self.clientTextField.placeholder = Constants.clientPlaceHolder
         self.dateTextField.placeholder = Constants.datePlaceHolder
+        
+        self.nameTextField.text = self.logicController?.invoice.name
+        self.clientTextField.text = self.logicController?.invoice.client
+        self.dateTextField.text = self.logicController?.invoice.date
     }
 }

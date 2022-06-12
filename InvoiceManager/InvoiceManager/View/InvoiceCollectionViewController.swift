@@ -52,12 +52,11 @@ class InvoiceCollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
-        self.logicController?.loadInvoices()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.collectionView.reloadData()
+        self.logicController?.loadInvoices()
     }
 
     private func setup() {
@@ -90,10 +89,9 @@ class InvoiceCollectionViewController: UIViewController {
      
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        self.collectionView.backgroundColor = .green
         
         self.collectionView.register(AddInvoiceCollectionViewCell.self, forCellWithReuseIdentifier: Constants.cellIdentifierAddInvoice)
-        self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
+        self.collectionView.register(InvoiceCollectionViewCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
     }
     
     private func setupPicker() {
@@ -159,15 +157,25 @@ extension InvoiceCollectionViewController: UICollectionViewDataSource, UICollect
             return self.returnAddInvoiceCell(collectionView, cellForItemAt: indexPath)
         }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath)
-        cell.backgroundColor = UIColor.blue
-        return cell
+        guard let invoice = self.logicController?.invoices[indexPath.item - 1] else { return UICollectionViewCell() }
+        return returnInvoiceCell(collectionView,
+                                 cellForItemAt: indexPath,
+                                 invoice: invoice)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item == 0 {
             
             self.showPickerAlert()
+        } else {
+            
+            guard let invoice = self.logicController?.invoices[indexPath.item - 1],
+                    let context = self.logicController?.context else { return }
+            
+            self.coordinator?.goToInvoiceDetail(from: self,
+                                                invoice: invoice,
+                                                coordinator: self.coordinator as? Coordinator,
+                                                context: context)
         }
     }
     
@@ -179,6 +187,18 @@ extension InvoiceCollectionViewController: UICollectionViewDataSource, UICollect
         }
         
         return AddInvoiceCollectionViewCell()
+    }
+    
+    private func returnInvoiceCell(_ collectionView: UICollectionView,
+                                   cellForItemAt indexPath: IndexPath,
+                                   invoice: InvoiceEntity) -> InvoiceCollectionViewCell{
+        
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as? InvoiceCollectionViewCell {
+            cell.redraw(with: invoice)
+            return cell
+        }
+        
+        return InvoiceCollectionViewCell()
     }
 }
 
@@ -203,18 +223,18 @@ extension InvoiceCollectionViewController: UIImagePickerControllerDelegate, UINa
         picker.dismiss(animated: true)
         DispatchQueue.main.async {
             if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                guard let str = pickedImage.pngData()?.base64EncodedString(options: .lineLength64Characters),
+                guard let str = pickedImage.jpegData(compressionQuality: 0.7)?.base64EncodedString(options: .lineLength64Characters),
                       let context = self.logicController?.context else { return }
                 
                 let formatter = DateFormatter()
                 formatter.dateFormat = Constants.dateFormat
+
+                let entity = InvoiceEntity(context: context)
+                entity.date = formatter.string(from: Date())
+                entity.image = str
                 
-                let invoice = Invoice(image: str,
-                                      name: "",
-                                      client: "",
-                                      date: formatter.string(from: Date()))
                 self.coordinator?.goToInvoiceDetail(from: self,
-                                                    invoice: invoice,
+                                                    invoice: entity,
                                                     coordinator: self.coordinator as? Coordinator,
                                                     context: context)
             }

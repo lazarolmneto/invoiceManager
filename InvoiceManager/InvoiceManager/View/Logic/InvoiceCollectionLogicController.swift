@@ -15,7 +15,7 @@ protocol InvoiceCollectionLogicControllerDelegate {
 
 class InvoiceCollectionLogicController: NSObject {
 
-    private (set) var invoices: [Invoice] = []
+    private (set) var invoices: [InvoiceEntity] = []
     let context: NSManagedObjectContext
     
     //delegate
@@ -24,6 +24,8 @@ class InvoiceCollectionLogicController: NSObject {
     init(context: NSManagedObjectContext) {
         
         self.context = context
+        super.init()
+        self.addNotificationTarget()
     }
 
     func loadInvoices() {
@@ -36,9 +38,7 @@ class InvoiceCollectionLogicController: NSObject {
             let entities = result.map { mapResult in
                 return mapResult as! InvoiceEntity
             }
-            self.invoices.append(contentsOf: entities.map({ entity in
-                return Invoice(from: entity)
-            }))
+            self.invoices.append(contentsOf: entities)
 
             self.delegate?.didFetchData()
        } catch {
@@ -48,5 +48,17 @@ class InvoiceCollectionLogicController: NSObject {
     
     func setDelegate(delegate: InvoiceCollectionLogicControllerDelegate) {
         self.delegate = delegate
+    }
+    
+    func addNotificationTarget() {
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didNotifyToFetchInvoices),
+                                               name: NotificationKeys.fetchNewItems.notificationName,
+                                               object: nil)
+    }
+    
+    @objc fileprivate func didNotifyToFetchInvoices() {
+        self.loadInvoices()
     }
 }

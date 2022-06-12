@@ -11,6 +11,8 @@ class AddInvoiceCollectionViewCell: UICollectionViewCell {
  
     private struct Constatns {
         static let cameraIconSize = CGFloat(70)
+        static let borderWidth = CGFloat(4)
+        static let cameraIconNamed = "cameraIcon"
     }
     
     let cameraImage = UIImageView().withAutoLayout() as! UIImageView
@@ -35,6 +37,8 @@ class AddInvoiceCollectionViewCell: UICollectionViewCell {
         self.cameraImage.constraintWidth(constant: Constatns.cameraIconSize)
         self.cameraImage.centerXToSuper()
         self.cameraImage.centerYToSuper()
-        self.cameraImage.image = UIImage(named: "cameraIcon")
+        self.cameraImage.image = UIImage(named: Constatns.cameraIconNamed)
+        self.layer.borderColor = UIColor.black.withAlphaComponent(0.7).cgColor
+        self.layer.borderWidth = Constatns.borderWidth
     }
 }
