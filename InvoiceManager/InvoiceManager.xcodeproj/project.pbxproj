@@ -22,7 +22,6 @@
 		D325D3902852ADA0000397B0 /* UICollectionView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D38F2852ADA0000397B0 /* UICollectionView+Constraints.swift */; };
 		D39D9B052854DE7100DA0A76 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D9B042854DE7100DA0A76 /* Coordinator.swift */; };
 		D39D9B072854DF7D00DA0A76 /* Coodinator+InvoiceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D9B062854DF7D00DA0A76 /* Coodinator+InvoiceDetail.swift */; };
-		D39D9B0A2854DFBD00DA0A76 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D9B092854DFBD00DA0A76 /* Invoice.swift */; };
 		D39D9B0C2854E08E00DA0A76 /* InvoiceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D9B0B2854E08E00DA0A76 /* InvoiceDetailViewController.swift */; };
 		D39D9B0F2854E0D200DA0A76 /* InvoiceDetailLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D9B0E2854E0D200DA0A76 /* InvoiceDetailLogicController.swift */; };
 		D3EB0450285627F50059DE68 /* InvoiceCollectionLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EB044F285627F50059DE68 /* InvoiceCollectionLogicController.swift */; };
@@ -68,7 +67,6 @@
 		D325D38F2852ADA0000397B0 /* UICollectionView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Constraints.swift"; sourceTree = "<group>"; };
 		D39D9B042854DE7100DA0A76 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		D39D9B062854DF7D00DA0A76 /* Coodinator+InvoiceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coodinator+InvoiceDetail.swift"; sourceTree = "<group>"; };
-		D39D9B092854DFBD00DA0A76 /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
 		D39D9B0B2854E08E00DA0A76 /* InvoiceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailViewController.swift; sourceTree = "<group>"; };
 		D39D9B0E2854E0D200DA0A76 /* InvoiceDetailLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailLogicController.swift; sourceTree = "<group>"; };
 		D3EB044F285627F50059DE68 /* InvoiceCollectionLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceCollectionLogicController.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				D3EB04562856702D0059DE68 /* Notifications */,
-				D39D9B082854DFB200DA0A76 /* Model */,
 				D39D9B032854DE5A00DA0A76 /* Coordinator */,
 				D325D38C2852A94C000397B0 /* View */,
 				D325D3892852A73F000397B0 /* Extensions */,
@@ -186,14 +183,6 @@
 				D39D9B062854DF7D00DA0A76 /* Coodinator+InvoiceDetail.swift */,
 			);
 			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		D39D9B082854DFB200DA0A76 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D39D9B092854DFBD00DA0A76 /* Invoice.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		D39D9B0D2854E0BB00DA0A76 /* Logic */ = {
@@ -365,7 +354,6 @@
 				D325D38B2852A75E000397B0 /* UIView+Constrains.swift in Sources */,
 				D325D3592852A717000397B0 /* SceneDelegate.swift in Sources */,
 				D3EB0450285627F50059DE68 /* InvoiceCollectionLogicController.swift in Sources */,
-				D39D9B0A2854DFBD00DA0A76 /* Invoice.swift in Sources */,
 				D325D3902852ADA0000397B0 /* UICollectionView+Constraints.swift in Sources */,
 				D3EB0453285633990059DE68 /* AddInvoiceCollectionViewCell.swift in Sources */,
 				D325D3612852A717000397B0 /* InvoiceManager.xcdatamodeld in Sources */,
