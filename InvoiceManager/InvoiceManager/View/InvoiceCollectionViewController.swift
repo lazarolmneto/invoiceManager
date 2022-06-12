@@ -6,15 +6,21 @@
 //
 
 import UIKit
+import CoreData
 
 class InvoiceCollectionViewController: UIViewController {
 
     //Constants - InvoiceCollectionViewController
     private struct Constants {
         static let heightMultiplier = 1.22
+        static let numberOfSections = 1
         static let cellIdentifier = "invoiceCell"
         static let cellIdentifierAddInvoice = "addInvoiceCell"
         static let alertTitle = "Choose Image"
+        static let albumTitle = "Album"
+        static let cameraTitle = "Camera"
+        static let cancelTitle = "Cancel"
+        static let dateFormat = "dd/MM/yyyy"
     }
     
     //Layout
@@ -25,10 +31,28 @@ class InvoiceCollectionViewController: UIViewController {
                                           message: nil,
                                           preferredStyle: .actionSheet)
     
+    //Coordinator
+    private var coordinator: CoordinatorInvoiceDetail?
+    
+    //Logic
+    var logicController: InvoiceCollectionLogicController?
+    
+    init(coordinator: CoordinatorInvoiceDetail,
+         logic: InvoiceCollectionLogicController?) {
+        
+        self.coordinator = coordinator
+        self.logicController = logic
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.setup()
+        self.logicController?.loadInvoices()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,10 +62,14 @@ class InvoiceCollectionViewController: UIViewController {
 
     private func setup() {
         self.view.backgroundColor = .white
+        self.setupLogicController()
         self.setupCollectionView()
         self.addSubViews()
         self.setupPicker()
-//        self.setupLayout()
+    }
+    
+    private func setupLogicController() {
+        self.logicController?.setDelegate(delegate: self)
     }
     
     private func addSubViews() {
@@ -64,6 +92,7 @@ class InvoiceCollectionViewController: UIViewController {
         self.collectionView.dataSource = self
         self.collectionView.backgroundColor = .green
         
+        self.collectionView.register(AddInvoiceCollectionViewCell.self, forCellWithReuseIdentifier: Constants.cellIdentifierAddInvoice)
         self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
     }
     
@@ -72,7 +101,7 @@ class InvoiceCollectionViewController: UIViewController {
         self.imagePicker.delegate = self
         self.imagePicker.allowsEditing = false
         
-        let actionSavedPhotosAlbum = UIAlertAction(title: "Album", style: .default) { [weak self] _ in
+        let actionSavedPhotosAlbum = UIAlertAction(title: Constants.albumTitle, style: .default) { [weak self] _ in
             if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
                 
                 guard let self = self else { return }
@@ -80,7 +109,7 @@ class InvoiceCollectionViewController: UIViewController {
             }
         }
         
-        let actionCamera = UIAlertAction(title: "Camera", style: .default) { [weak self] _ in
+        let actionCamera = UIAlertAction(title: Constants.cameraTitle, style: .default) { [weak self] _ in
             if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
                 
                 guard let self = self else { return }
@@ -88,7 +117,7 @@ class InvoiceCollectionViewController: UIViewController {
             }
         }
         
-        let cancelActtion = UIAlertAction(title: "Cancel", style: .destructive) { [weak self] _ in
+        let cancelActtion = UIAlertAction(title: Constants.cancelTitle, style: .destructive) { [weak self] _ in
             guard let self = self else { return }
             self.alert.dismiss(animated: true)
         }
@@ -117,14 +146,18 @@ class InvoiceCollectionViewController: UIViewController {
 extension InvoiceCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return Constants.numberOfSections
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return (self.logicController?.invoices.count ?? 0) + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if indexPath.item == 0 {
+            return self.returnAddInvoiceCell(collectionView, cellForItemAt: indexPath)
+        }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath)
         cell.backgroundColor = UIColor.blue
@@ -136,6 +169,16 @@ extension InvoiceCollectionViewController: UICollectionViewDataSource, UICollect
             
             self.showPickerAlert()
         }
+    }
+    
+    private func returnAddInvoiceCell(_ collectionView: UICollectionView,
+                                      cellForItemAt indexPath: IndexPath) -> AddInvoiceCollectionViewCell{
+        
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifierAddInvoice, for: indexPath) as? AddInvoiceCollectionViewCell {
+            return cell
+        }
+        
+        return AddInvoiceCollectionViewCell()
     }
 }
 
@@ -157,5 +200,32 @@ extension InvoiceCollectionViewController: UIImagePickerControllerDelegate, UINa
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+        picker.dismiss(animated: true)
+        DispatchQueue.main.async {
+            if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                guard let str = pickedImage.pngData()?.base64EncodedString(options: .lineLength64Characters),
+                      let context = self.logicController?.context else { return }
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = Constants.dateFormat
+                
+                let invoice = Invoice(image: str,
+                                      name: "",
+                                      client: "",
+                                      date: formatter.string(from: Date()))
+                self.coordinator?.goToInvoiceDetail(from: self,
+                                                    invoice: invoice,
+                                                    coordinator: self.coordinator as? Coordinator,
+                                                    context: context)
+            }
+        }
+    }
+}
+
+//MARK: InvoiceCollectionLogicControllerDelegate
+extension InvoiceCollectionViewController: InvoiceCollectionLogicControllerDelegate {
+    
+    func didFetchData() {
+        self.collectionView.reloadData()
     }
 }
