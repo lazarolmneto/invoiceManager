@@ -10,6 +10,11 @@ import CoreData
 
 class InvoiceDetailViewController: UIViewController {
 
+    public enum Style {
+        case add
+        case edit
+    }
+    
     //Logic
     var logicController: InvoiceDetailLogicController?
     
@@ -26,6 +31,10 @@ class InvoiceDetailViewController: UIViewController {
     let dateTextField: UITextField = UITextField().withAutoLayout() as! UITextField
     let datePicker: UIDatePicker = UIDatePicker()
     let saveButton: UIButton = UIButton().withAutoLayout() as! UIButton
+    let deleteButton: UIButton = UIButton().withAutoLayout() as! UIButton
+    
+    //style attribute
+    let style: Style
     
     //Constants - InvoiceDetailViewController
     private struct Constants {
@@ -44,6 +53,7 @@ class InvoiceDetailViewController: UIViewController {
         static let datePlaceHolder = "Date"
         static let dateFormat = "dd/MM/yyyy"
         static let saveTitle = "Save"
+        static let deleteTitle = "Delete"
     }
     
     override func viewDidLoad() {
@@ -59,10 +69,11 @@ class InvoiceDetailViewController: UIViewController {
     }
     
     init(logicController: InvoiceDetailLogicController?,
-         coordinator: Coordinator?) {
+         coordinator: Coordinator?, style: Style = .add) {
         
         self.logicController = logicController
         self.coordinator = coordinator
+        self.style = style
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -86,6 +97,7 @@ class InvoiceDetailViewController: UIViewController {
         self.view.addSubview(self.clientTextField)
         self.view.addSubview(self.dateTextField)
         self.view.addSubview(self.saveButton)
+        self.view.addSubview(self.deleteButton)
         self.setupLayout()
         
         //TODO: REMOVE
@@ -152,6 +164,12 @@ class InvoiceDetailViewController: UIViewController {
         self.saveButton.constraintLeading(to: self.clientTextField)
         self.saveButton.constraintTrailing(to: self.clientTextField)
         self.saveButton.constraintHeight(constant: Constants.saveButtonHeight)
+        
+        //delete button
+        self.deleteButton.constraintTop(to: self.saveButton.bottomAnchor, constant: Constants.textFieldTopPadding)
+        self.deleteButton.constraintLeading(to: self.clientTextField)
+        self.deleteButton.constraintTrailing(to: self.clientTextField)
+        self.deleteButton.constraintHeight(constant: Constants.saveButtonHeight)
     }
     
     private func setupDatePicker() {
@@ -190,6 +208,21 @@ class InvoiceDetailViewController: UIViewController {
         }
         
         self.saveButton.addAction(saveAction, for: .touchUpInside)
+        
+        self.deleteButton.setTitle(Constants.deleteTitle, for: .normal)
+        self.deleteButton.setTitleColor(.white, for: .normal)
+        self.deleteButton.backgroundColor = .red
+        self.deleteButton.clipsToBounds = true
+        self.deleteButton.layer.cornerRadius = Constants.saveButtonHeight / 2
+        
+        let deleteAction = UIAction { [weak self] action in
+            guard let self = self else { return }
+            
+            self.logicController?.deleteInvoice()
+            self.coordinator?.back(from: self)
+        }
+        
+        self.deleteButton.addAction(deleteAction, for: .touchUpInside)
     }
     
     private func setupLayoutData() {
@@ -205,5 +238,9 @@ class InvoiceDetailViewController: UIViewController {
         self.nameTextField.text = self.logicController?.invoice.name
         self.clientTextField.text = self.logicController?.invoice.client
         self.dateTextField.text = self.logicController?.invoice.date
+        
+        if self.style == .add {
+            self.deleteButton.removeFromSuperview()
+        }
     }
 }

@@ -37,4 +37,17 @@ class InvoiceDetailLogicController {
             print("Error")
         }
     }
+    
+    func deleteInvoice() {
+        
+        do {
+            context.delete(invoice)
+            try context.save()
+            
+            NotificationCenter.default.post(name: NotificationKeys.fetchNewItems.notificationName,
+                                            object: nil)
+        } catch {
+            print("Error")
+        }
+    }
 }

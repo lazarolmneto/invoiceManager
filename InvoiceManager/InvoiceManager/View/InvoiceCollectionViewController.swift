@@ -175,7 +175,7 @@ extension InvoiceCollectionViewController: UICollectionViewDataSource, UICollect
             self.coordinator?.goToInvoiceDetail(from: self,
                                                 invoice: invoice,
                                                 coordinator: self.coordinator as? Coordinator,
-                                                context: context)
+                                                context: context, style: .edit)
         }
     }
     
@@ -236,7 +236,8 @@ extension InvoiceCollectionViewController: UIImagePickerControllerDelegate, UINa
                 self.coordinator?.goToInvoiceDetail(from: self,
                                                     invoice: entity,
                                                     coordinator: self.coordinator as? Coordinator,
-                                                    context: context)
+                                                    context: context,
+                                                    style: .add)
             }
         }
     }

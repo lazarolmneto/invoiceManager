@@ -13,7 +13,8 @@ protocol CoordinatorInvoiceDetail {
     func goToInvoiceDetail(from vc: UIViewController,
                            invoice: InvoiceEntity,
                            coordinator: Coordinator?,
-                           context: NSManagedObjectContext)
+                           context: NSManagedObjectContext,
+                           style: InvoiceDetailViewController.Style)
 }
 
 extension Coordinator: CoordinatorInvoiceDetail {
@@ -21,12 +22,14 @@ extension Coordinator: CoordinatorInvoiceDetail {
     func goToInvoiceDetail(from vc: UIViewController,
                            invoice: InvoiceEntity,
                            coordinator: Coordinator?,
-                           context: NSManagedObjectContext) {
+                           context: NSManagedObjectContext,
+                           style: InvoiceDetailViewController.Style) {
         
         let logicController = InvoiceDetailLogicController(invoice: invoice,
                                                            context: context)
         let viewTo = InvoiceDetailViewController(logicController: logicController,
-                                                 coordinator: coordinator)
+                                                 coordinator: coordinator,
+                                                 style: style)
         self.present(from: vc, to: viewTo)
     }
 }
