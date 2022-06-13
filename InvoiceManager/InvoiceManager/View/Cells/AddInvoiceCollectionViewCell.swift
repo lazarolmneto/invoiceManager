@@ -38,7 +38,8 @@ class AddInvoiceCollectionViewCell: UICollectionViewCell {
         self.cameraImage.centerXToSuper()
         self.cameraImage.centerYToSuper()
         self.cameraImage.image = UIImage(named: Constatns.cameraIconNamed)
-        self.layer.borderColor = UIColor.black.withAlphaComponent(0.7).cgColor
+        self.cameraImage.tintColor = .appGreyColor
+        self.layer.borderColor = UIColor.appGreyColor.cgColor
         self.layer.borderWidth = Constatns.borderWidth
     }
 }

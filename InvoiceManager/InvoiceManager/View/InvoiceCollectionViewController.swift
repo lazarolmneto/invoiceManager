@@ -14,6 +14,8 @@ class InvoiceCollectionViewController: UIViewController {
     private struct Constants {
         static let heightMultiplier = 1.22
         static let numberOfSections = 1
+        static let collectionHorizontalPadding = CGFloat(10)
+        static let collectionTopPadding = CGFloat(80)
         static let cellIdentifier = "invoiceCell"
         static let cellIdentifierAddInvoice = "addInvoiceCell"
         static let alertTitle = "Choose Image"
@@ -21,6 +23,7 @@ class InvoiceCollectionViewController: UIViewController {
         static let cameraTitle = "Camera"
         static let cancelTitle = "Cancel"
         static let dateFormat = "dd/MM/yyyy"
+        static let title = "Invoices"
     }
     
     //Layout
@@ -43,6 +46,7 @@ class InvoiceCollectionViewController: UIViewController {
         self.coordinator = coordinator
         self.logicController = logic
         super.init(nibName: nil, bundle: nil)
+        self.title = Constants.title
     }
     
     required init?(coder: NSCoder) {
@@ -79,10 +83,10 @@ class InvoiceCollectionViewController: UIViewController {
     
     private func setupLayout() {
         
-        self.collectionView.constraintTop(to: self.view, constant: 20)
+        self.collectionView.constraintTop(to: self.view, constant: Constants.collectionTopPadding)
         self.collectionView.constraintBottom(to: self.view)
-        self.collectionView.constraintTrailing(to: self.view, constant:  -10)
-        self.collectionView.constraintLeading(to: self.view, constant: 10)
+        self.collectionView.constraintTrailing(to: self.view, constant:  -Constants.collectionHorizontalPadding)
+        self.collectionView.constraintLeading(to: self.view, constant: Constants.collectionHorizontalPadding)
     }
     
     private func setupCollectionView() {
@@ -199,6 +203,10 @@ extension InvoiceCollectionViewController: UICollectionViewDataSource, UICollect
         }
         
         return InvoiceCollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
     }
 }
 

@@ -19,6 +19,8 @@
 		D325D38B2852A75E000397B0 /* UIView+Constrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D38A2852A75E000397B0 /* UIView+Constrains.swift */; };
 		D325D38E2852AAA8000397B0 /* InvoiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D38D2852AAA8000397B0 /* InvoiceCollectionViewController.swift */; };
 		D325D3902852ADA0000397B0 /* UICollectionView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D325D38F2852ADA0000397B0 /* UICollectionView+Constraints.swift */; };
+		D381BEE12857DBA70095302A /* UIColor+Pallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = D381BEE02857DBA70095302A /* UIColor+Pallete.swift */; };
+		D381BEE32857E61E0095302A /* CoreDataInvoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D381BEE22857E61E0095302A /* CoreDataInvoiceTests.swift */; };
 		D39D9B052854DE7100DA0A76 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D9B042854DE7100DA0A76 /* Coordinator.swift */; };
 		D39D9B072854DF7D00DA0A76 /* Coodinator+InvoiceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D9B062854DF7D00DA0A76 /* Coodinator+InvoiceDetail.swift */; };
 		D39D9B0C2854E08E00DA0A76 /* InvoiceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D9B0B2854E08E00DA0A76 /* InvoiceDetailViewController.swift */; };
@@ -63,6 +65,8 @@
 		D325D38A2852A75E000397B0 /* UIView+Constrains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constrains.swift"; sourceTree = "<group>"; };
 		D325D38D2852AAA8000397B0 /* InvoiceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceCollectionViewController.swift; sourceTree = "<group>"; };
 		D325D38F2852ADA0000397B0 /* UICollectionView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Constraints.swift"; sourceTree = "<group>"; };
+		D381BEE02857DBA70095302A /* UIColor+Pallete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Pallete.swift"; sourceTree = "<group>"; };
+		D381BEE22857E61E0095302A /* CoreDataInvoiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataInvoiceTests.swift; sourceTree = "<group>"; };
 		D39D9B042854DE7100DA0A76 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		D39D9B062854DF7D00DA0A76 /* Coodinator+InvoiceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coodinator+InvoiceDetail.swift"; sourceTree = "<group>"; };
 		D39D9B0B2854E08E00DA0A76 /* InvoiceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				D325D3702852A71A000397B0 /* InvoiceManagerTests.swift */,
+				D381BEE22857E61E0095302A /* CoreDataInvoiceTests.swift */,
 			);
 			path = InvoiceManagerTests;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 			children = (
 				D325D38F2852ADA0000397B0 /* UICollectionView+Constraints.swift */,
 				D325D38A2852A75E000397B0 /* UIView+Constrains.swift */,
+				D381BEE02857DBA70095302A /* UIColor+Pallete.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -344,6 +350,7 @@
 				D39D9B0C2854E08E00DA0A76 /* InvoiceDetailViewController.swift in Sources */,
 				D3EB04582856706A0059DE68 /* NotificationKeys.swift in Sources */,
 				D39D9B0F2854E0D200DA0A76 /* InvoiceDetailLogicController.swift in Sources */,
+				D381BEE12857DBA70095302A /* UIColor+Pallete.swift in Sources */,
 				D325D3572852A717000397B0 /* AppDelegate.swift in Sources */,
 				D325D38E2852AAA8000397B0 /* InvoiceCollectionViewController.swift in Sources */,
 				D39D9B072854DF7D00DA0A76 /* Coodinator+InvoiceDetail.swift in Sources */,
@@ -360,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D381BEE32857E61E0095302A /* CoreDataInvoiceTests.swift in Sources */,
 				D325D3712852A71A000397B0 /* InvoiceManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

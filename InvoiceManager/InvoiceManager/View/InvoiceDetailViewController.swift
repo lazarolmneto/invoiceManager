@@ -100,8 +100,6 @@ class InvoiceDetailViewController: UIViewController {
         self.view.addSubview(self.deleteButton)
         self.setupLayout()
         
-        //TODO: REMOVE
-        self.parentImageView.backgroundColor = .blue
         self.gradientImageView.backgroundColor = .clear
     }
     
@@ -126,7 +124,7 @@ class InvoiceDetailViewController: UIViewController {
         gradientLayer.frame = CGRect(x: 0, y: 0,
                                      width: self.view.frame.width,
                                      height: Constants.heightGradiente)
-        gradientLayer.colors = [UIColor.black.cgColor, UIColor.clear.cgColor]
+        gradientLayer.colors = [UIColor.appBlackColor.cgColor, UIColor.clear.cgColor]
         self.gradientImageView.layer.insertSublayer(gradientLayer, at: 0)
         
         //back button
@@ -146,18 +144,21 @@ class InvoiceDetailViewController: UIViewController {
         self.nameTextField.constraintLeading(to: self.view, constant: Constants.textFieldPadding)
         self.nameTextField.constraintTrailing(to: self.view, constant: -Constants.textFieldPadding)
         self.nameTextField.constraintHeight(constant: Constants.textFieldHeight)
+        self.nameTextField.textColor = .appBlackColor
         
         self.clientTextField.constraintTop(to: self.nameTextField.bottomAnchor,
                                            constant: Constants.textFieldTopPadding)
         self.clientTextField.constraintLeading(to: self.nameTextField)
         self.clientTextField.constraintTrailing(to: self.nameTextField)
         self.clientTextField.constraintHeight(constant: Constants.textFieldHeight)
+        self.clientTextField.textColor = .appBlackColor
         
         self.dateTextField.constraintTop(to: self.clientTextField.bottomAnchor,
                                          constant: Constants.textFieldTopPadding)
         self.dateTextField.constraintLeading(to: self.clientTextField)
         self.dateTextField.constraintTrailing(to: self.clientTextField)
         self.dateTextField.constraintHeight(constant: Constants.textFieldHeight)
+        self.dateTextField.textColor = .appBlackColor
         
         //save button
         self.saveButton.constraintTop(to: self.dateTextField.bottomAnchor, constant: Constants.textFieldTopPadding)
@@ -194,7 +195,7 @@ class InvoiceDetailViewController: UIViewController {
         
         self.saveButton.setTitle(Constants.saveTitle, for: .normal)
         self.saveButton.setTitleColor(.white, for: .normal)
-        self.saveButton.backgroundColor = .blue
+        self.saveButton.backgroundColor = .appBlueColor
         self.saveButton.clipsToBounds = true
         self.saveButton.layer.cornerRadius = Constants.saveButtonHeight / 2
         
@@ -211,7 +212,7 @@ class InvoiceDetailViewController: UIViewController {
         
         self.deleteButton.setTitle(Constants.deleteTitle, for: .normal)
         self.deleteButton.setTitleColor(.white, for: .normal)
-        self.deleteButton.backgroundColor = .red
+        self.deleteButton.backgroundColor = .appRedColor
         self.deleteButton.clipsToBounds = true
         self.deleteButton.layer.cornerRadius = Constants.saveButtonHeight / 2
         

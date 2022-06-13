@@ -25,7 +25,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let invoiceCollection = InvoiceCollectionViewController(coordinator: coordinator,
                                                                 logic:  logic)
         
-        window?.rootViewController = invoiceCollection
+        let nav = UINavigationController(rootViewController: invoiceCollection)
+        self.setupNav()
+        window?.rootViewController = nav
+    }
+    
+    private func setupNav() {
+        
+        if #available(iOS 13.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.configureWithOpaqueBackground()
+            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.appWhiteColor]
+            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.appWhiteColor]
+            navBarAppearance.backgroundColor = .appBlueColor
+            UINavigationBar.appearance().standardAppearance = navBarAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+        } else {
+            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.appWhiteColor]
+            UINavigationBar.appearance().backgroundColor = .appBlueColor
+            UINavigationBar.appearance().barTintColor = .appBlueColor
+            UIBarButtonItem.appearance().tintColor = .appWhiteColor
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
