@@ -17,32 +17,41 @@ class CoreDataInvoiceTests: XCTestCase {
         static let dateFormatt = "dd/MM/yyyy"
     }
     
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private var moc: NSManagedObjectContext!
+    private var invoice: InvoiceEntity!
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.moc =  appDelegate.persistentContainer.viewContext
+        
+        self.invoice = InvoiceEntity(context: moc)
+        self.invoice.name = Constants.name
+        self.invoice.client = Constants.name
+        self.invoice.image = ""
+        let formatter = DateFormatter()
+        formatter.dateFormat = Constants.dateFormatt
+        self.invoice.date = formatter.string(from: Date())
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        moc.delete(invoice)
+        _ = try? moc.save()
     }
 
     func testExample() throws {
-        let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         
-        let invoiceEntity = InvoiceEntity(context: moc)
-        invoiceEntity.name = Constants.name
-        invoiceEntity.client = Constants.name
-        let formatter = DateFormatter()
-        formatter.dateFormat = Constants.dateFormatt
-        invoiceEntity.date = formatter.string(from: Date())
+        moc.insert(self.invoice)
         
-        moc.insert(invoiceEntity)
-        
-        guard let _ = try? moc.save() else {
-            return assertionFailure("Did not save")
+        do {
+            try moc.save()
+        } catch let error {
+            return assertionFailure("Did not save - \(error.localizedDescription)")
         }
         
-        let predicate = NSPredicate(format: "name == %@ AND client == %@",
-                                    argumentArray:[Constants.name, Constants.client])
+        let predicate = NSPredicate(format: "name == %@ AND client == %@ AND date == %@",
+                                    argumentArray:[Constants.name, Constants.client, ""])
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "InvoiceEntity")
         request.predicate = predicate
         
@@ -50,7 +59,7 @@ class CoreDataInvoiceTests: XCTestCase {
             return assertionFailure("Did not fetch")
         }
         
-        print(result)
+        XCTAssertTrue(result.isEmpty, "Result empty")
     }
 
     func testPerformanceExample() throws {

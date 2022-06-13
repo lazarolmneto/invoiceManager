@@ -254,28 +254,28 @@
             filePath = "InvoiceManagerTests/CoreDataInvoiceTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "testExample()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D0A7FC6E-DFBC-4D09-B6A3-133721C8FA46 - ffd298e2ae60a1c1"
-                  shouldBeEnabled = "No"
+                  uuid = "D0A7FC6E-DFBC-4D09-B6A3-133721C8FA46 - e0572642fde136e3"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "InvoiceManagerTests.CoreDataInvoiceTests.testExample() throws -&gt; ()"
+                  symbolName = "InvoiceManagerTests.CoreDataInvoiceTests.testPerformanceExample() throws -&gt; ()"
                   moduleName = "InvoiceManagerTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lazaroneto/Desktop/Lazaro/apps/github/invoiceManager/InvoiceManager/InvoiceManagerTests/CoreDataInvoiceTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "1532">
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "36">
                </Location>
                <Location
-                  uuid = "D0A7FC6E-DFBC-4D09-B6A3-133721C8FA46 - ffd298e2ae60a1c1"
+                  uuid = "D0A7FC6E-DFBC-4D09-B6A3-133721C8FA46 - ffd298e2ae60a31f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -285,12 +285,30 @@
                   urlString = "file:///Users/lazaroneto/Desktop/Lazaro/apps/github/invoiceManager/InvoiceManager/InvoiceManagerTests/CoreDataInvoiceTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "1628">
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "1532">
                </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6CE10FC2-A6C6-4AE5-B14B-D52B7A214055"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InvoiceManagerTests/CoreDataInvoiceTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "testExample()"
+            landmarkType = "7">
+            <Locations>
                <Location
-                  uuid = "D0A7FC6E-DFBC-4D09-B6A3-133721C8FA46 - ffd298e2ae60a1e0"
+                  uuid = "6CE10FC2-A6C6-4AE5-B14B-D52B7A214055 - ffd298e2ae60a1e0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -302,7 +320,22 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
                   endingLineNumber = "53"
-                  offsetFromSymbolStart = "1547">
+                  offsetFromSymbolStart = "1905">
+               </Location>
+               <Location
+                  uuid = "6CE10FC2-A6C6-4AE5-B14B-D52B7A214055 - ffd298e2ae60a1e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "InvoiceManagerTests.CoreDataInvoiceTests.testExample() throws -&gt; ()"
+                  moduleName = "InvoiceManagerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lazaroneto/Desktop/Lazaro/apps/github/invoiceManager/InvoiceManager/InvoiceManagerTests/CoreDataInvoiceTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "1820">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -310,142 +343,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6CE10FC2-A6C6-4AE5-B14B-D52B7A214055"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InvoiceManagerTests/CoreDataInvoiceTests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "testExample()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6CE10FC2-A6C6-4AE5-B14B-D52B7A214055 - ffd298e2ae60a14d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "InvoiceManagerTests.CoreDataInvoiceTests.testExample() throws -&gt; ()"
-                  moduleName = "InvoiceManagerTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lazaroneto/Desktop/Lazaro/apps/github/invoiceManager/InvoiceManager/InvoiceManagerTests/CoreDataInvoiceTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "1398">
-               </Location>
-               <Location
-                  uuid = "6CE10FC2-A6C6-4AE5-B14B-D52B7A214055 - ffd298e2ae60a14d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "InvoiceManagerTests.CoreDataInvoiceTests.testExample() throws -&gt; ()"
-                  moduleName = "InvoiceManagerTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lazaroneto/Desktop/Lazaro/apps/github/invoiceManager/InvoiceManager/InvoiceManagerTests/CoreDataInvoiceTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "1494">
-               </Location>
-               <Location
-                  uuid = "6CE10FC2-A6C6-4AE5-B14B-D52B7A214055 - ffd298e2ae60a16c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "InvoiceManagerTests.CoreDataInvoiceTests.testExample() throws -&gt; ()"
-                  moduleName = "InvoiceManagerTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lazaroneto/Desktop/Lazaro/apps/github/invoiceManager/InvoiceManager/InvoiceManagerTests/CoreDataInvoiceTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "1413">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0DD700B9-09AE-47D5-B2BB-57C1927EE13F"
+            uuid = "4178431B-4A65-441A-8C49-FF11A837E9B2"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InvoiceManagerTests/CoreDataInvoiceTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "testExample()"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "tearDownWithError()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0DD700B9-09AE-47D5-B2BB-57C1927EE13F - ffd298e2ae60ae16"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "InvoiceManagerTests.CoreDataInvoiceTests.testExample() throws -&gt; ()"
-                  moduleName = "InvoiceManagerTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lazaroneto/Desktop/Lazaro/apps/github/invoiceManager/InvoiceManager/InvoiceManagerTests/CoreDataInvoiceTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "750">
-               </Location>
-               <Location
-                  uuid = "0DD700B9-09AE-47D5-B2BB-57C1927EE13F - ffd298e2ae60ae16"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "InvoiceManagerTests.CoreDataInvoiceTests.testExample() throws -&gt; ()"
-                  moduleName = "InvoiceManagerTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lazaroneto/Desktop/Lazaro/apps/github/invoiceManager/InvoiceManager/InvoiceManagerTests/CoreDataInvoiceTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "846">
-               </Location>
-               <Location
-                  uuid = "0DD700B9-09AE-47D5-B2BB-57C1927EE13F - ffd298e2ae60ae35"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "InvoiceManagerTests.CoreDataInvoiceTests.testExample() throws -&gt; ()"
-                  moduleName = "InvoiceManagerTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lazaroneto/Desktop/Lazaro/apps/github/invoiceManager/InvoiceManager/InvoiceManagerTests/CoreDataInvoiceTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "765">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "368D3100-AB9E-4C89-B25D-C49CB6D9D35B"
+            uuid = "509B8584-2271-4F98-9168-7A97D7189442"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InvoiceManagerTests/CoreDataInvoiceTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "testExample()"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "setUpWithError()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
